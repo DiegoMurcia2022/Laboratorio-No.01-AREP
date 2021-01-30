@@ -37,3 +37,21 @@ Si desea cambiar los valores con los que el programa realiza los calculos debe i
 modificar el metodo `addValues` con los valores deseados.
 
 ***Nota: Recuerde que estos valores deben de ser `Double`.***
+
+## Documentación
+Para ver la documentacion del proyecto puede ejecutar por consola los comandos:
+```
+    mvn javadoc:javadoc
+    mvn site
+    mvn site:run
+```
+Luego de esto dirijase a su navegador preferido y digite:
+```
+    http://localhost:8080/apidocs/index.html
+```
+Y estara directamente en la documentación del proyecto. O si lo prefiere de otra forma, puede
+usar el archivo index.html que se encuentra en la siguiente ruta del proyecto:
+```
+    Laboratorio-No.01-AREP/docs/index.html
+```
+donde tambien podra acceder a la documentación del proyecto.

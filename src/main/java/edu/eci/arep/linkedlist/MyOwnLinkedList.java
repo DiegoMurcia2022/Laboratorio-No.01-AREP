@@ -8,8 +8,16 @@ public class MyOwnLinkedList {
     private int counter;
     private Node head;
 
+    /**
+     * Constructor de la clase Node
+     */
     public MyOwnLinkedList(){}
 
+    /**
+     * Añade al final de la LinkedList un nuevo dato
+     *
+     * @param data Información a añadir que debe ser de tipo Double
+     */
     public void add(Double data) {
         Node temporal, current;
 
@@ -31,22 +39,13 @@ public class MyOwnLinkedList {
         counter++;
     }
 
-    public void add(Double data, int index) {
-        Node temporal = new Node(data);
-        Node current = head;
-
-        if(current!=null) {
-            for(int i=0;i<index && current.getNext()!=null;i++) {
-                current = current.getNext();
-            }
-        }
-
-        temporal.setNext(current.getNext());
-        current.setNext(temporal);
-
-        counter++;
-    }
-
+    /**
+     * Obtiene el dato de la posición que se desee
+     *
+     * @param index Posición en la LinkedList
+     * @return Valor que se encuentra en la posición ingresada de la LinkedList y es de tipo Double
+     * @throws LinkedListException Envia un error en caso tal de que la posición ingresada sea mayor o menor al tamaño de la LinkedList
+     */
     public Double get(int index) throws LinkedListException{
         Node current;
 
@@ -73,32 +72,11 @@ public class MyOwnLinkedList {
         return null;
     }
 
-    public void remove(int index) throws LinkedListException {
-        Node current;
-
-        if(index<1 || index>counter) {
-            throw new LinkedListException(LinkedListException.INDEX_OUT_OF_RANGE);
-        }
-
-        current = head;
-
-        if(head!=null) {
-            for(int i=0;i<index;i++) {
-                if(current.getNext()==null) {
-                    throw new LinkedListException(LinkedListException.INDEX_OUT_OF_RANGE);
-                }
-
-                current = current.getNext();
-            }
-
-            current.setNext(current.getNext().getNext());
-
-            counter--;
-        } else {
-            throw new LinkedListException(LinkedListException.INDEX_OUT_OF_RANGE);
-        }
-    }
-
+    /**
+     * Da formato a la LinkedList
+     *
+     * @return Formato entendible para mostrar la LinkedList y es de tipo String
+     */
     public String toString() {
         StringBuilder output = new StringBuilder();
         Node current = head.getNext();
